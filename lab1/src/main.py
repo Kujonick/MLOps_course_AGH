@@ -6,7 +6,7 @@ from settings import Settings
 
 
 def export_envs(environment: str = "dev") -> None:
-    load_dotenv(f".env.{environment}")
+    load_dotenv(f"./config/.env.{environment}")
 
     with open("secrets.yaml", "r") as file:
         config = yaml.safe_load(file)
