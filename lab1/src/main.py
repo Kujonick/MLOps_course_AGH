@@ -1,5 +1,3 @@
-import os
-import yaml
 import argparse
 from dotenv import load_dotenv
 from settings import Settings
@@ -7,12 +5,6 @@ from settings import Settings
 
 def export_envs(environment: str = "dev") -> None:
     load_dotenv(f"./config/.env.{environment}")
-
-    with open("secrets.yaml", "r") as file:
-        config = yaml.safe_load(file)
-
-    for key, value in config.items():
-        os.environ[key] = str(value)
 
 
 if __name__ == "__main__":
