@@ -14,12 +14,3 @@ def predict(model: SentenceTransformer, classifier: LogisticRegression, text: st
     embedding = model.encode(text).reshape(1, -1)
     output = classifier.predict(embedding)[0]
     return output
-
-
-if __name__ == "__main__":
-    model = SentenceTransformer("resources/sentence_transformer.model")
-    classifier: LogisticRegression = joblib.load("resources/classifier.joblib")
-    text = "This is good wording"
-    embedding = model.encode(text).reshape(1, -1)
-    output = classifier.predict(embedding)
-    print(output)
