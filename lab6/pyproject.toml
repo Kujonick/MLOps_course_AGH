@@ -16,6 +16,7 @@ dependencies = [
     "pandas",
     "ruff",
     "scikit-learn",
+    "seaborn>=0.13.2",
     "sentence-transformers",
     "transformers[torch]",
 ]
