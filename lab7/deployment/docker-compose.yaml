@@ -1,0 +1,9 @@
+services:
+  pytorch:
+    build: ./pytorch_app
+    ports:
+      - "8000:8000"
+  onnx:
+    build: ./onnx_app
+    ports:
+      - "8001:8001"
