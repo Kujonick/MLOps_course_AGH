@@ -5,12 +5,14 @@ from typing import Tuple
 
 
 def load_models() -> Tuple[SentenceTransformer, LogisticRegression]:
-    model = SentenceTransformer("resources/sentence_transformer.model")
-    classifier: LogisticRegression = joblib.load("resources/classifier.joblib")
+    model = SentenceTransformer("resources/model/sentence_transformer.model")
+    classifier: LogisticRegression = joblib.load("resources/model/classifier.joblib")
     return model, classifier
 
 
 def predict(model: SentenceTransformer, classifier: LogisticRegression, text: str):
+    print(text)
     embedding = model.encode(text).reshape(1, -1)
-    output = classifier.predict(embedding)[0]
-    return output
+    output = classifier.predict(embedding)
+    print(output)
+    return output[0]
